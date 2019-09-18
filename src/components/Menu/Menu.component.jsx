@@ -6,6 +6,7 @@ import { MenuContainer, Branding, MenuOption } from "./Menu.styles";
 const Menu = props => {
   const currentPath = props.history.location.pathname;
   const homePath = "/";
+  const dashboardPath = "/dashboard";
   const signinPath = "/signin";
   const signupPath = "/signup";
   return (
@@ -15,6 +16,11 @@ const Menu = props => {
         <ul>
           <Link to={homePath}>
             <MenuOption isActive={currentPath === homePath}>Home</MenuOption>
+          </Link>
+          <Link to={dashboardPath}>
+            <MenuOption isActive={currentPath === dashboardPath}>
+              Dashboard
+            </MenuOption>
           </Link>
           <Link to={signinPath}>
             <MenuOption isActive={currentPath === signinPath}>

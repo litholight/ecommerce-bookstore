@@ -7,7 +7,7 @@ export const MenuContainer = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: blue;
+  background-color: #2da7df;
 
   ul {
     margin: 0;
