@@ -1,7 +1,7 @@
 import styled, { css } from "styled-components";
 
 export const Jumbotron = styled.div`
-  background-color: rgb(92.5%, 92.5%, 92.5%);
+  background-color: lightcyan;
   padding: 25px;
 
   h2 {

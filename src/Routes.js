@@ -22,7 +22,6 @@ class Routes extends React.Component {
   componentDidMount() {
     this.unsubscribeFromAuth = auth.onAuthStateChanged(user => {
       this.setState({ currentUser: user });
-      console.log(user);
     });
   }
 
@@ -42,7 +41,13 @@ class Routes extends React.Component {
             component={Dashboard}
             currentUser={this.state.currentUser}
           />
-          <Route exact path="/signin" component={Signin} />
+          <Route
+            exact
+            path="/signin"
+            render={() =>
+              this.state.currentUser ? <Redirect to="/dashboard" /> : <Signin />
+            }
+          />
           <Route exact path="/signup" component={Signup} />
         </Switch>
       </BrowserRouter>

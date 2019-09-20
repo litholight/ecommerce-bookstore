@@ -18,7 +18,9 @@ const Menu = props => {
   let currentUser = props.currentUser;
   return (
     <MenuContainer>
-      <Branding to="/">Sophia's Bookstore</Branding>
+      <Branding to="/">
+        Custom Ecommerce Example - Stoneburner Software, LLC
+      </Branding>
       <nav>
         <ul>
           <MenuOption to={homePath} isActive={currentPath === homePath}>
