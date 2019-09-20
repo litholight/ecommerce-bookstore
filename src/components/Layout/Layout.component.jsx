@@ -1,5 +1,4 @@
 import React from "react";
-import Menu from "../Menu/Menu.component";
 import { Jumbotron } from "./Layout.styles";
 
 const Layout = ({
@@ -9,7 +8,6 @@ const Layout = ({
   className
 }) => (
   <div>
-    <Menu />
     <Jumbotron>
       <h2>{title}</h2>
       <p>{description}</p>

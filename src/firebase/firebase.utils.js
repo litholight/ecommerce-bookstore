@@ -3,13 +3,13 @@ import "firebase/firestore";
 import "firebase/auth";
 
 const config = {
-  apiKey: "AIzaSyBhILMKpp26l1p_xJYGhIXwDzd3pZur--E",
-  authDomain: "crwn-db-c2599.firebaseapp.com",
-  databaseURL: "https://crwn-db-c2599.firebaseio.com",
-  projectId: "crwn-db-c2599",
+  apiKey: "AIzaSyBgZy1im0tZo0dtd6IV_XrOxBxHH886MrM",
+  authDomain: "ssfw-bookstore-fs.firebaseapp.com",
+  databaseURL: "https://ssfw-bookstore-fs.firebaseio.com",
+  projectId: "ssfw-bookstore-fs",
   storageBucket: "",
-  messagingSenderId: "307137270766",
-  appId: "1:307137270766:web:06157f41d2eceb8a"
+  messagingSenderId: "1071022521989",
+  appId: "1:1071022521989:web:7cbe96bbf74d1766fa33ec"
 };
 
 export const createUserProfileDocument = async (userAuth, additionalData) => {

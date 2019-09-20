@@ -23,12 +23,13 @@ export const Branding = styled(Link)`
   padding: 15px;
 `;
 
-export const MenuOption = styled.li`
+export const MenuOption = styled(Link)`
   display: inline-block;
   padding: 10px;
   color: white;
   height: 100%;
   border: 1px dotted transparent;
+  text-decoration: none;
 
   &:hover {
     border: 1px dotted white;
@@ -37,8 +38,27 @@ export const MenuOption = styled.li`
 
   a {
     color: white;
-    text-decoration: none;
   }
+  ${props =>
+    props.isActive &&
+    css`
+      color: orange;
+    `}
+`;
+
+export const MenuOptionDiv = styled.div`
+  padding: 10px;
+  color: white;
+  height: 100%;
+  border: 1px dotted transparent;
+  cursor: pointer;
+  text-decoration: none;
+
+  &:hover {
+    border: 1px dotted white;
+    border-radius: 5px;
+  }
+
   ${props =>
     props.isActive &&
     css`
