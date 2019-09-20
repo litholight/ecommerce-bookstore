@@ -24,9 +24,8 @@ const Menu = props => {
           <MenuOption to={homePath} isActive={currentPath === homePath}>
             Home
           </MenuOption>
-
           {currentUser ? (
-            <div>
+            <React.Fragment>
               <MenuOption
                 to={dashboardPath}
                 isActive={currentPath === dashboardPath}
@@ -36,16 +35,16 @@ const Menu = props => {
               <MenuOptionDiv onClick={() => auth.signOut()}>
                 Sign Out
               </MenuOptionDiv>
-            </div>
+            </React.Fragment>
           ) : (
-            <div>
+            <React.Fragment>
               <MenuOption to={signinPath} isActive={currentPath === signinPath}>
                 Sign in
               </MenuOption>
               <MenuOption to={signupPath} isActive={currentPath === signupPath}>
                 Sign up
               </MenuOption>
-            </div>
+            </React.Fragment>
           )}
         </ul>
       </nav>

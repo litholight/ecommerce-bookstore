@@ -24,10 +24,8 @@ export const Branding = styled(Link)`
 `;
 
 export const MenuOption = styled(Link)`
-  display: inline-block;
   padding: 10px;
   color: white;
-  height: 100%;
   border: 1px dotted transparent;
   text-decoration: none;
 
@@ -36,9 +34,6 @@ export const MenuOption = styled(Link)`
     border-radius: 5px;
   }
 
-  a {
-    color: white;
-  }
   ${props =>
     props.isActive &&
     css`
@@ -49,7 +44,6 @@ export const MenuOption = styled(Link)`
 export const MenuOptionDiv = styled.div`
   padding: 10px;
   color: white;
-  height: 100%;
   border: 1px dotted transparent;
   cursor: pointer;
   text-decoration: none;
