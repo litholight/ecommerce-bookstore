@@ -4,7 +4,7 @@ import Menu from "./components/Menu/Menu.component";
 import Signup from "./components/Signup/Signup.component";
 import Signin from "./components/Signin/Signin.component";
 import Homepage from "./pages/Homepage/Homepage.component";
-import Dashboard from "./pages/Dashboard/Dashboard.component";
+import UserDashboard from "./pages/UserDashboard/UserDashboard.component";
 import PrivateRoute from "./auth/PrivateRoutes";
 import { auth } from "./firebase/firebase.utils";
 
@@ -13,7 +13,7 @@ class Routes extends React.Component {
     super();
 
     this.state = {
-      currentUser: null
+      currentUser: "admin"
     };
   }
 
@@ -38,7 +38,7 @@ class Routes extends React.Component {
           <PrivateRoute
             exact
             path="/dashboard"
-            component={Dashboard}
+            component={UserDashboard}
             currentUser={this.state.currentUser}
           />
           <Route
