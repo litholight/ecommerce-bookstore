@@ -13,7 +13,7 @@ class Routes extends React.Component {
     super();
 
     this.state = {
-      currentUser: "admin"
+      currentUser: null
     };
   }
 

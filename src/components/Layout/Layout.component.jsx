@@ -10,7 +10,7 @@ const Layout = ({
   <div>
     <Jumbotron>
       <h2>{title}</h2>
-      <p>{description}</p>
+      <h3>{description}</h3>
     </Jumbotron>
     <div className={className}>{children} </div>
   </div>
