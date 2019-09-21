@@ -1,6 +1,8 @@
 import React from "react";
-import { Link, withRouter } from "react-router-dom";
+import { withRouter } from "react-router-dom";
 import { auth } from "../../firebase/firebase.utils";
+
+import { isAdmin } from "../../utils/utils";
 
 import {
   MenuContainer,
@@ -12,15 +14,15 @@ import {
 const Menu = props => {
   const currentPath = props.history.location.pathname;
   const homePath = "/";
-  const dashboardPath = "/dashboard";
   const signinPath = "/signin";
   const signupPath = "/signup";
-  let currentUser = props.currentUser;
+  const currentUser = props.currentUser;
+  const dashboardPath =
+    currentUser && currentUser.role && isAdmin(currentUser.role);
+
   return (
     <MenuContainer>
-      <Branding to="/">
-        Custom Ecommerce Example - Stoneburner Software, LLC
-      </Branding>
+      <Branding to="/">Ecommerce Portal - Stoneburner Software, LLC</Branding>
       <nav>
         <ul>
           <MenuOption to={homePath} isActive={currentPath === homePath}>

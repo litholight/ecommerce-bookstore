@@ -5,8 +5,12 @@ import Signup from "./components/Signup/Signup.component";
 import Signin from "./components/Signin/Signin.component";
 import Homepage from "./pages/Homepage/Homepage.component";
 import UserDashboard from "./pages/UserDashboard/UserDashboard.component";
+import AdminDashboard from "./pages/AdminDashboard/AdminDashboard.component";
 import PrivateRoute from "./auth/PrivateRoutes";
-import { auth } from "./firebase/firebase.utils";
+import AdminRoute from "./auth/AdminRoute.component";
+import { auth, createUserProfileDocument } from "./firebase/firebase.utils";
+
+import { isAdmin } from "./utils/utils";
 
 class Routes extends React.Component {
   constructor() {
@@ -20,8 +24,21 @@ class Routes extends React.Component {
   unsubscribeFromAuth = null;
 
   componentDidMount() {
-    this.unsubscribeFromAuth = auth.onAuthStateChanged(user => {
-      this.setState({ currentUser: user });
+    this.unsubscribeFromAuth = auth.onAuthStateChanged(async userAuth => {
+      if (userAuth) {
+        const userRef = await createUserProfileDocument(userAuth);
+
+        userRef.onSnapshot(snapShot => {
+          this.setState({
+            currentUser: {
+              id: snapShot.id,
+              ...snapShot.data()
+            }
+          });
+        });
+      } else {
+        this.setState({ currentUser: userAuth });
+      }
     });
   }
 
@@ -37,15 +54,25 @@ class Routes extends React.Component {
           <Route exact path="/" component={Homepage} />
           <PrivateRoute
             exact
-            path="/dashboard"
+            path="/user/dashboard"
             component={UserDashboard}
+            currentUser={this.state.currentUser}
+          />
+          <AdminRoute
+            exact
+            path="/admin/dashboard"
+            component={AdminDashboard}
             currentUser={this.state.currentUser}
           />
           <Route
             exact
             path="/signin"
             render={() =>
-              this.state.currentUser ? <Redirect to="/dashboard" /> : <Signin />
+              this.state.currentUser ? (
+                <Redirect to={isAdmin(this.state.currentUser.role)} />
+              ) : (
+                <Signin />
+              )
             }
           />
           <Route exact path="/signup" component={Signup} />
