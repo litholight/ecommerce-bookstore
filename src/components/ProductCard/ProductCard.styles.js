@@ -1,8 +1,30 @@
 import styled from "styled-components";
 
+export const ProductContainer = styled.div`
+  background-color: white;
+  border: 1px solid lightgrey;
+  margin: 10px;
+  border-radius: 10px;
+  width: 20vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+`;
+
 export const ProductCardHeader = styled.div`
-  font-size: 1.5rem;
+  width: 100%;
+  background-color: #2da7df;
+  color: white;
+  font-size: 1rem;
+  font-weight: bold;
   padding: 15px;
+  text-align: center;
+`;
+
+export const ProductImage = styled.img`
+  padding: 10px;
+  max-width: 170px;
 `;
 
 export const ProductItem = styled.div`
@@ -17,12 +39,4 @@ export const ProductPrice = styled.div`
   border: none;
   font-size: 1rem;
   padding: 15px;
-`;
-
-export const ProductContainer = styled.div`
-  background-color: lightgrey;
-  border: 1px solid lightgrey;
-  margin: 25px;
-  border-radius: 10px;
-  width: 40vw;
 `;

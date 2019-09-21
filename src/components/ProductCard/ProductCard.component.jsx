@@ -2,6 +2,7 @@ import React from "react";
 import CustomButton from "../custom-button/custom-button.component";
 import {
   ProductContainer,
+  ProductImage,
   ProductItem,
   ProductCardHeader,
   ProductPrice
@@ -11,7 +12,7 @@ import ProductCardFooter from "./ProductCardFooter/ProductCardFooter";
 const ProductCard = ({ header, imageUrl, description, price }) => (
   <ProductContainer>
     <ProductCardHeader>{header}</ProductCardHeader>
-    <img src={imageUrl} alt="" />
+    <ProductImage src={imageUrl} alt="" />
     <ProductItem>{description}</ProductItem>
     <ProductPrice>${price}</ProductPrice>
     <ProductCardFooter />
