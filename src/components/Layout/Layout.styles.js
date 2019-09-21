@@ -10,3 +10,9 @@ export const Jumbotron = styled.div`
     padding-top: 50px;
   }
 `;
+
+export const ChildContainer = styled.div`
+  display: inline-flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+`;

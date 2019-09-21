@@ -1,18 +1,13 @@
 import React from "react";
-import { Jumbotron } from "./Layout.styles";
+import { Jumbotron, ChildContainer } from "./Layout.styles";
 
-const Layout = ({
-  title = "Title",
-  description = "Description",
-  children,
-  className
-}) => (
+const Layout = ({ title = "Title", description = "Description", children }) => (
   <div>
     <Jumbotron>
       <h2>{title}</h2>
       <h3>{description}</h3>
     </Jumbotron>
-    <div className={className}>{children} </div>
+    <ChildContainer>{children}</ChildContainer>
   </div>
 );
 
