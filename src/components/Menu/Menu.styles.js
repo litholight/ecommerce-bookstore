@@ -29,6 +29,9 @@ export const MenuOption = styled(Link)`
   color: white;
   border: 1px dotted transparent;
   text-decoration: none;
+  :last-child {
+    margin-right: 30px;
+  }
 
   &:hover {
     border: 1px dotted white;

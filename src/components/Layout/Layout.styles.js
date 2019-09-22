@@ -19,7 +19,6 @@ export const Jumbotron = styled.div`
 `;
 
 export const ChildContainer = styled.div`
-  background-color: white;
   display: inline-flex;
   flex-direction: row;
   flex-wrap: wrap;

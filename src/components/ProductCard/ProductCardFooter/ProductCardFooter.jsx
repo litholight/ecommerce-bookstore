@@ -6,7 +6,7 @@ import { PCFStyles } from "./ProductCardFooter.styles";
 const ProductCardFooter = () => (
   <PCFStyles>
     <CustomButton>View Product</CustomButton>
-    <CustomButton>Add to Cart</CustomButton>
+    <CustomButton inverted={"inverted"}>Add to Cart</CustomButton>
   </PCFStyles>
 );
 
