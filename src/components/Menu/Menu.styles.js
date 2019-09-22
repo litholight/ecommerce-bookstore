@@ -8,6 +8,7 @@ export const MenuContainer = styled.div`
   justify-content: space-between;
   align-items: center;
   background-color: #2da7df;
+  font-weight: bold;
 
   ul {
     margin: 0;
@@ -47,6 +48,7 @@ export const MenuOptionDiv = styled.div`
   border: 1px dotted transparent;
   cursor: pointer;
   text-decoration: none;
+  margin-right: 30px;
 
   &:hover {
     border: 1px dotted white;

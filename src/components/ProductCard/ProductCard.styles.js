@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const ProductContainer = styled.div`
   background-color: white;
-  border: 1px solid lightgrey;
+  border: 1px solid black;
   margin: 10px;
   border-radius: 10px;
   width: 250px;
@@ -14,8 +14,8 @@ export const ProductContainer = styled.div`
 
 export const ProductCardHeader = styled.div`
   width: 100%;
-  background-color: #2da7df;
-  color: white;
+  background-color: lightgrey;
+  color: black;
   font-size: 1rem;
   font-weight: bold;
   padding: 15px;

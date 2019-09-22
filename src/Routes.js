@@ -8,6 +8,9 @@ import UserDashboard from "./pages/UserDashboard/UserDashboard.component";
 import AdminDashboard from "./pages/AdminDashboard/AdminDashboard.component";
 import PrivateRoute from "./auth/PrivateRoutes";
 import AdminRoute from "./auth/AdminRoute.component";
+import AddCategory from "./pages/Admin/AddCategory/AddCategory.component";
+import AddProduct from "./pages/Admin/AddProduct/AddProduct.component";
+
 import { auth, createUserProfileDocument } from "./firebase/firebase.utils";
 
 import { isAdmin } from "./utils/utils";
@@ -62,6 +65,18 @@ class Routes extends React.Component {
             exact
             path="/admin/dashboard"
             component={AdminDashboard}
+            currentUser={this.state.currentUser}
+          />
+          <AdminRoute
+            exact
+            path="/create/category"
+            component={AddCategory}
+            currentUser={this.state.currentUser}
+          />
+          <AdminRoute
+            exact
+            path="/create/product"
+            component={AddProduct}
             currentUser={this.state.currentUser}
           />
           <Route

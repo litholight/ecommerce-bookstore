@@ -9,7 +9,7 @@ const AdminDashboard = props => {
     <Layout title="Admin Dashboard" description={`Hello, ${displayName}!`}>
       <InfoCard
         header="Links"
-        infoItems={["CreateCategory", "CreateProduct"]}
+        infoItems={["Create Category", "Create Product"]}
         isLink={true}
       />
       <InfoCard
