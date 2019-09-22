@@ -5,7 +5,7 @@ export const ProductContainer = styled.div`
   border: 1px solid lightgrey;
   margin: 10px;
   border-radius: 10px;
-  width: 20vw;
+  width: 250px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -20,6 +20,7 @@ export const ProductCardHeader = styled.div`
   font-weight: bold;
   padding: 15px;
   text-align: center;
+  border-radius: 10px 10px 0 0;
 `;
 
 export const ProductImage = styled.img`

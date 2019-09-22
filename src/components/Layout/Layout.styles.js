@@ -2,7 +2,7 @@ import styled, { css } from "styled-components";
 import gbww from "./gbww.jpg";
 
 export const Jumbotron = styled.div`
-  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(100, 0, 150, 0.8)),
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(90, 40, 150, 0.8)),
     url(${gbww});
   background-repeat: no-repeat;
   background-position: cover;
@@ -12,7 +12,7 @@ export const Jumbotron = styled.div`
 
   h2 {
     font-family: "Prata", serif;
-    font-size: 4rem;
+    font-size: 3rem;
     margin: 0;
     padding-top: 50px;
   }
