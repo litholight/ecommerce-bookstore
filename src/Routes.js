@@ -52,7 +52,7 @@ class Routes extends React.Component {
   render() {
     return (
       <BrowserRouter>
-        <Menu />
+        <Menu currentUser={this.state.currentUser} />
         <Switch>
           <Route exact path="/" component={Homepage} />
           <PrivateRoute
