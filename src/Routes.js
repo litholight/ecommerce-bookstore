@@ -5,7 +5,7 @@ import Signup from "./components/Signup/Signup.component";
 import Signin from "./components/Signin/Signin.component";
 import Homepage from "./pages/Homepage/Homepage.component";
 import UserDashboard from "./pages/UserDashboard/UserDashboard.component";
-import AdminDashboard from "./pages/AdminDashboard/AdminDashboard.component";
+import AdminDashboard from "./pages/Admin/AdminDashboard.component";
 import PrivateRoute from "./auth/PrivateRoutes";
 import AdminRoute from "./auth/AdminRoute.component";
 import AddCategory from "./pages/Admin/AddCategory/AddCategory.component";
@@ -52,7 +52,7 @@ class Routes extends React.Component {
   render() {
     return (
       <BrowserRouter>
-        <Menu currentUser={this.state.currentUser} />
+        <Menu />
         <Switch>
           <Route exact path="/" component={Homepage} />
           <PrivateRoute

@@ -11,7 +11,7 @@ const AddCategory = () => (
     <form onSubmit={clickSubmit}>
       <form action="" className="form-group">
         <label className="text-muted">Name</label>
-        <input type="text" className="form-control" autofocus />
+        <input type="text" className="form-control" autoFocus />
         <button className="primary">Create Category</button>
       </form>
     </form>
