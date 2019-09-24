@@ -1,7 +1,10 @@
 import React from "react";
 import { withRouter } from "react-router-dom";
-import { auth } from "../../firebase/firebase.utils";
 import { connect } from "react-redux";
+
+import { auth } from "../../firebase/firebase.utils";
+import CartIcon from "../cart-icon/cart-icon.component";
+import CartDropdown from "../cart-dropdown/cart-dropdown.component";
 
 import { isAdmin } from "../../utils/utils";
 
@@ -13,6 +16,7 @@ import {
 } from "./Menu.styles";
 
 const Menu = props => {
+  const hidden = props.hidden;
   const currentPath = props.history.location.pathname;
   const homePath = "/";
   const signinPath = "/signin";
@@ -51,14 +55,17 @@ const Menu = props => {
               </MenuOption>
             </React.Fragment>
           )}
+          <CartIcon />
+          {hidden ? null : <CartDropdown />}
         </ul>
       </nav>
     </MenuContainer>
   );
 };
 
-const mapStateToProps = state => ({
-  currentUser: state.user.currentUser
+const mapStateToProps = ({ user: { currentUser }, cart: { hidden } }) => ({
+  currentUser,
+  hidden
 });
 
 export default withRouter(connect(mapStateToProps)(Menu));
