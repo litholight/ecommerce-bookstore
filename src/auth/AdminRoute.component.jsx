@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { Route, Redirect } from "react-router-dom";
+import { connect } from "react-redux";
 
 const AdminRoute = ({ component: Component, currentUser, ...rest }) => {
   return (
@@ -18,4 +19,8 @@ const AdminRoute = ({ component: Component, currentUser, ...rest }) => {
   );
 };
 
-export default AdminRoute;
+const mapStateToProps = state => ({
+  currentUser: state.user.currentUser
+});
+
+export default connect(mapStateToProps)(AdminRoute);

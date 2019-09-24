@@ -1,6 +1,7 @@
 import React from "react";
 import { withRouter } from "react-router-dom";
 import { auth } from "../../firebase/firebase.utils";
+import { connect } from "react-redux";
 
 import { isAdmin } from "../../utils/utils";
 
@@ -56,4 +57,8 @@ const Menu = props => {
   );
 };
 
-export default withRouter(Menu);
+const mapStateToProps = state => ({
+  currentUser: state.user.currentUser
+});
+
+export default withRouter(connect(mapStateToProps)(Menu));

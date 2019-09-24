@@ -1,5 +1,93 @@
 import React from "react";
+import { Switch, Route, Redirect } from "react-router-dom";
+import { connect } from "react-redux";
 
-const App = () => <div>Hello from React</div>;
+import Menu from "./components/Menu/Menu.component";
+import Signup from "./components/Signup/Signup.component";
+import Signin from "./components/Signin/Signin.component";
+import Homepage from "./pages/Homepage/Homepage.component";
+import UserDashboard from "./pages/UserDashboard/UserDashboard.component";
+import AdminDashboard from "./pages/Admin/AdminDashboard.component";
+import PrivateRoute from "./auth/PrivateRoutes";
+import AdminRoute from "./auth/AdminRoute.component";
+import AddCategory from "./pages/Admin/AddCategory/AddCategory.component";
+import AddProduct from "./pages/Admin/AddProduct/AddProduct.component";
 
-export default App;
+import { auth, createUserProfileDocument } from "./firebase/firebase.utils";
+import { setCurrentUser } from "./redux/user/user.actions";
+
+import { isAdmin } from "./utils/utils";
+
+class App extends React.Component {
+  unsubscribeFromAuth = null;
+
+  componentDidMount() {
+    const { setCurrentUser } = this.props;
+    this.unsubscribeFromAuth = auth.onAuthStateChanged(async userAuth => {
+      if (userAuth) {
+        const userRef = await createUserProfileDocument(userAuth);
+
+        userRef.onSnapshot(snapShot => {
+          setCurrentUser({
+            id: snapShot.id,
+            ...snapShot.data()
+          });
+        });
+      } else {
+        setCurrentUser(userAuth);
+      }
+    });
+  }
+
+  componentWillUnmount() {
+    this.unsubscribeFromAuth();
+  }
+
+  render() {
+    return (
+      <div>
+        <Menu />
+        <Switch>
+          <Route exact path="/" component={Homepage} />
+          <PrivateRoute
+            exact
+            path="/user/dashboard"
+            component={UserDashboard}
+          />
+          <AdminRoute
+            exact
+            path="/admin/dashboard"
+            component={AdminDashboard}
+          />
+          <AdminRoute exact path="/create/category" component={AddCategory} />
+          <AdminRoute exact path="/create/product" component={AddProduct} />
+          <Route
+            exact
+            path="/signin"
+            render={() =>
+              this.props.currentUser ? (
+                <Redirect to={isAdmin(this.props.currentUser.role)} />
+              ) : (
+                <Signin />
+              )
+            }
+          />
+          <Route exact path="/signup" component={Signup} />
+        </Switch>
+      </div>
+    );
+  }
+}
+
+const mapStateToProps = state => ({
+  currentUser: state.user.currentUser
+});
+
+const mapDispatchToProps = dispatch => ({
+  setCurrentUser: user => dispatch(setCurrentUser(user))
+});
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(App);
