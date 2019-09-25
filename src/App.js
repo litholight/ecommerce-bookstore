@@ -8,10 +8,12 @@ import Signin from "./components/Signin/Signin.component";
 import Homepage from "./pages/Homepage/Homepage.component";
 import UserDashboard from "./pages/UserDashboard/UserDashboard.component";
 import AdminDashboard from "./pages/Admin/AdminDashboard.component";
+import AddProduct from "./pages/Admin/AddProduct/AddProduct.component";
+import AddCategory from "./pages/Admin/AddCategory/AddCategory.component";
+import CheckoutPage from "./pages/checkout/checkout.component";
+
 import PrivateRoute from "./auth/PrivateRoutes";
 import AdminRoute from "./auth/AdminRoute.component";
-import AddCategory from "./pages/Admin/AddCategory/AddCategory.component";
-import AddProduct from "./pages/Admin/AddProduct/AddProduct.component";
 
 import { auth, createUserProfileDocument } from "./firebase/firebase.utils";
 import { setCurrentUser } from "./redux/user/user.actions";
@@ -51,6 +53,7 @@ class App extends React.Component {
         <Menu />
         <Switch>
           <Route exact path="/" component={Homepage} />
+          <Route exact path="/checkout" component={CheckoutPage} />
           <PrivateRoute
             exact
             path="/user/dashboard"
