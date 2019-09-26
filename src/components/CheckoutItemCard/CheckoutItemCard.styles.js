@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const ProductContainer = styled.div`
   background-color: white;
-  border: 1px solid black;
+  border: 1px solid lightgrey;
   border-radius: 10px;
   width: 400px;
   display: flex;

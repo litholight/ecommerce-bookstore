@@ -9,7 +9,7 @@ export const MenuContainer = styled.div`
   align-items: center;
   background-color: #2da7df;
   font-weight: bold;
-
+  position: fixed;
   ul {
     margin: 0;
     display: flex;

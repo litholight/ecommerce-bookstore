@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const ProductContainer = styled.div`
   background-color: white;
-  border: 1px solid black;
+  border: 1px solid lightgrey;
   margin: 10px;
   border-radius: 10px;
   width: 250px;
@@ -18,7 +18,7 @@ export const ProductCardHeader = styled.div`
   color: black;
   font-size: 1rem;
   font-weight: bold;
-  padding: 15px;
+  padding: 5px;
   text-align: center;
   border-radius: 10px 10px 0 0;
 `;
@@ -32,12 +32,11 @@ export const ProductItem = styled.div`
   background-color: white;
   display: block;
   margin: 0px;
-  padding: 15px;
+  padding: 0px 10px;
 `;
 
 export const ProductPrice = styled.div`
   background-color: white;
   border: none;
   font-size: 1rem;
-  padding: 15px;
 `;

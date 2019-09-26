@@ -11,6 +11,7 @@ import AdminDashboard from "./pages/Admin/AdminDashboard.component";
 import AddProduct from "./pages/Admin/AddProduct/AddProduct.component";
 import AddCategory from "./pages/Admin/AddCategory/AddCategory.component";
 import CheckoutPage from "./pages/checkout/checkout.component";
+import ProductView from "./components/ProductView/ProductView.component";
 
 import PrivateRoute from "./auth/PrivateRoutes";
 import AdminRoute from "./auth/AdminRoute.component";
@@ -78,6 +79,7 @@ class App extends React.Component {
             }
           />
           <Route exact path="/signup" component={Signup} />
+          <Route exact path="/product/:id" component={ProductView} />
         </Switch>
       </div>
     );
