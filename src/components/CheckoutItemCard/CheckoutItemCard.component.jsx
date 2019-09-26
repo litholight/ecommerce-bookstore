@@ -8,21 +8,24 @@ import {
   ProductItem,
   ProductCardHeader,
   ProductPrice
-} from "./CartItemCard.styles";
+} from "./CheckoutItemCard.styles";
 import CustomButton from "../custom-button/custom-button.component";
 
-import { PCFStyles } from "./CartItemCardFooter.styles";
+import { PCFStyles } from "./CheckoutItemCardFooter.styles";
 
-const ProductCard = ({ product, addItem }) => {
-  const { header, imageUrl, description, price } = product;
+const CheckoutItemCard = ({ product, addItem }) => {
+  const { header, imageUrl, description, price, quantity } = product;
   return (
     <ProductContainer>
       <ProductCardHeader>{header}</ProductCardHeader>
       <ProductImage src={imageUrl} alt="" />
       <ProductItem>{description}</ProductItem>
-      <ProductPrice>${price}</ProductPrice>
+      <ProductPrice>
+        {quantity} x ${price}
+      </ProductPrice>
       <PCFStyles>
         <CustomButton>View Product</CustomButton>
+        <CustomButton>Remove</CustomButton>
       </PCFStyles>
     </ProductContainer>
   );
@@ -35,4 +38,4 @@ const mapDispatchToProps = dispatch => ({
 export default connect(
   null,
   mapDispatchToProps
-)(ProductCard);
+)(CheckoutItemCard);

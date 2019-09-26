@@ -3,18 +3,16 @@ import styled from "styled-components";
 export const ProductContainer = styled.div`
   background-color: white;
   border: 1px solid black;
-  margin: 10px;
   border-radius: 10px;
-  width: 250px;
+  width: 400px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  align-items: center;
 `;
 
 export const ProductCardHeader = styled.div`
   width: 100%;
-  background-color: lightgrey;
+  background-color: #2da7df;
   color: black;
   font-size: 1rem;
   font-weight: bold;
