@@ -20,7 +20,10 @@ const CartDropdown = ({ cartItems, history }) => (
         <span className="empty-message">Your cart is empty</span>
       )}
     </div>
-    <CustomButton onClick={() => history.push("/checkout")}>
+    <CustomButton
+      onClick={() => history.push("/checkout")}
+      className="cart-button"
+    >
       CHECKOUT
     </CustomButton>
   </div>
