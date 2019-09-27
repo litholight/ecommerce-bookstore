@@ -5,8 +5,8 @@ import { createStructuredSelector } from "reselect";
 import { selectProductData } from "../../redux/products/products.selectors";
 
 import Layout from "../Layout/Layout.component";
-import CheckoutItemCard from "../CheckoutItemCard/CheckoutItemCard.component";
 
+import ProductCard from "../ProductCard/ProductCard.component";
 import "./ProductView.styles.scss";
 
 const ProductView = props => {
@@ -19,7 +19,7 @@ const ProductView = props => {
           <h2>Book Information</h2>
           <hr />
           <div>
-            <h2>{productView.header}</h2>
+            <ProductCard product={productView} showViewProductButton={false} />
           </div>
         </div>
       </Layout>

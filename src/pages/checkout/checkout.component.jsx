@@ -19,8 +19,8 @@ const CheckoutPage = ({ itemCount, cartItems }) => (
     <div className="checkout-container">
       <h2>Your cart has {itemCount} items</h2>
       <hr />
-      {cartItems.map(product => (
-        <CheckoutItemCard key={product.id} product={product} />
+      {cartItems.map(cartItem => (
+        <CheckoutItemCard key={cartItem.id} cartItem={cartItem} />
       ))}
     </div>
   </Layout>

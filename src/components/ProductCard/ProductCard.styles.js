@@ -5,7 +5,6 @@ export const ProductContainer = styled.div`
   border: 1px solid lightgrey;
   margin: 10px;
   border-radius: 10px;
-  width: 250px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;

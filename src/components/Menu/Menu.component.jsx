@@ -27,7 +27,6 @@ const Menu = props => {
   const currentUser = props.currentUser;
   const dashboardPath =
     currentUser && currentUser.role && isAdmin(currentUser.role);
-
   return (
     <MenuContainer>
       <Branding to="/">Ecommerce Portal - Stoneburner Software, LLC</Branding>
