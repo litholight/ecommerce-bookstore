@@ -5,10 +5,18 @@ import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 
 const AddProduct = props => {
-  console.log(props, "in AddProduct");
+  const { category } = props.category;
+  console.log(category, "in AddProduct");
   return (
     <Layout title="Add a new product" description="Ready to add a new product?">
-      {JSON.stringify(props.category)}
+      <form>
+        <p>Select a category: </p>
+        <select>
+          {category.map(catOption => (
+            <option key="catOption">{catOption}</option>
+          ))}
+        </select>
+      </form>
     </Layout>
   );
 };

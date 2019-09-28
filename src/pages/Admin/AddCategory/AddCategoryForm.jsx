@@ -4,7 +4,8 @@ import CustomButton from "../../../components/custom-button/custom-button.compon
 export default class AddCategoryForm extends React.Component {
   state = {
     category: "",
-    error: ""
+    error: "",
+    success: ""
   };
   onCategoryChange = e => {
     const category = e.target.value;
@@ -15,9 +16,15 @@ export default class AddCategoryForm extends React.Component {
     e.preventDefault();
 
     if (!this.state.category) {
-      this.setState(() => ({ error: "Please enter in a category" }));
+      this.setState(() => ({
+        error: "Please enter in a category",
+        success: ""
+      }));
     } else {
-      this.setState(() => ({ error: "" }));
+      this.setState(() => ({
+        error: "",
+        success: "Category has been created successfully."
+      }));
       this.props.onSubmit(this.state.category);
     }
   };
@@ -26,6 +33,7 @@ export default class AddCategoryForm extends React.Component {
     return (
       <div>
         {this.state.error && <p>{this.state.error}</p>}
+        {this.state.success && <p>{this.state.success}</p>}
         <form onSubmit={this.onSubmit}>
           <label className="text-muted">Name</label>
           <input
