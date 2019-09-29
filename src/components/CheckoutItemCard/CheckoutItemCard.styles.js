@@ -13,7 +13,7 @@ export const ProductContainer = styled.div`
 export const ProductCardHeader = styled.div`
   width: 100%;
   background-color: #2da7df;
-  color: black;
+  color: white;
   font-size: 1rem;
   font-weight: bold;
   padding: 15px;

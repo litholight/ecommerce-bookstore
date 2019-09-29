@@ -8,7 +8,6 @@ import { addCategory } from "../../../redux/category/category.actions";
 import AddCategoryForm from "./AddCategoryForm";
 
 const AddCategory = ({ category, dispatch }) => {
-  console.log(category, "from addcategory");
   return (
     <Layout
       title="Add a new category"
