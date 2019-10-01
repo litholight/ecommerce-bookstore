@@ -55,6 +55,21 @@ export const addCollectionAndDocuments = async (
   return await batch.commit();
 };
 
+export const convertProductsSnapshotToMap = products => {
+  const transformedCollection = products.docs.map(doc => {
+    const { header, imageUrl, description, price } = doc.data();
+
+    return {
+      id: doc.id,
+      header,
+      imageUrl,
+      description,
+      price
+    };
+  });
+  console.log(transformedCollection);
+};
+
 firebase.initializeApp(config);
 
 export const auth = firebase.auth();
