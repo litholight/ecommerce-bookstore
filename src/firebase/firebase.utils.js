@@ -67,7 +67,10 @@ export const convertProductsSnapshotToMap = products => {
       price
     };
   });
-  console.log(transformedCollection);
+  return transformedCollection.reduce((accumulator, collection) => {
+    accumulator[collection.header.toLowerCase()] = collection;
+    return accumulator;
+  });
 };
 
 firebase.initializeApp(config);

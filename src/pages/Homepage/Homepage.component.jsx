@@ -19,7 +19,8 @@ class Homepage extends React.Component {
     const collectionRef = firestore.collection("products");
 
     collectionRef.onSnapshot(async snapshot => {
-      convertProductsSnapshotToMap(snapshot);
+      const collectionsMap = convertProductsSnapshotToMap(snapshot);
+      console.log(collectionsMap);
     });
   }
 
