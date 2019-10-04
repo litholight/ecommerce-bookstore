@@ -4,40 +4,51 @@ import { createStructuredSelector } from "reselect";
 
 import {
   firestore,
-  convertProductsSnapshotToMap
+  convertCollectionsSnapshotToMap
 } from "../../firebase/firebase.utils";
 
-import { selectProductData } from "../../redux/products/products.selectors";
+import { selectCollections } from "../../redux/shop/shop.selectors";
 
 import Layout from "../../components/Layout/Layout.component";
 import NewArrivals from "../NewArrivals/NewArrivals.component";
+import { updateCollections } from "../../redux/shop/shop.actions";
 
 class Homepage extends React.Component {
   unsubscribeFromSnapshot = null;
 
   componentDidMount() {
-    const collectionRef = firestore.collection("products");
+    const { updateCollections } = this.props;
+    const collectionRef = firestore.collection("collection");
 
-    collectionRef.onSnapshot(async snapshot => {
-      const collectionsMap = convertProductsSnapshotToMap(snapshot);
-      console.log(collectionsMap);
+    this.unsubscribeFromSnapshot = collectionRef.onSnapshot(async snapshot => {
+      const collectionsMap = convertCollectionsSnapshotToMap(snapshot);
+      updateCollections(collectionsMap);
     });
   }
 
   render() {
-    const { products } = this.props;
+    const { collections } = this.props;
+    console.log(collections, "from homepage");
     return (
       <div>
         <Layout title="Sophia's Bookstore" description="Live Demonstration">
-          <NewArrivals products={products} />
+          <NewArrivals products={collections} />
         </Layout>
       </div>
     );
   }
 }
 
-const mapStateToProps = createStructuredSelector({
-  products: selectProductData
+const mapDispatchToProps = dispatch => ({
+  updateCollections: collectionsMap =>
+    dispatch(updateCollections(collectionsMap))
 });
 
-export default connect(mapStateToProps)(Homepage);
+const mapStateToProps = createStructuredSelector({
+  collections: selectCollections
+});
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(Homepage);

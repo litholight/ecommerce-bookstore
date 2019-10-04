@@ -4,11 +4,11 @@ import ProductCard from "../../components/ProductCard/ProductCard.component";
 import { NewArrivalsContainer } from "./NewArrivals.styles";
 
 const NewArrivals = ({ products }) => {
-  return products.map(product => (
+  return (
     <NewArrivalsContainer>
-      <ProductCard key={product.id} product={product} />
+      <ProductCard key={products.id} products={products} />
     </NewArrivalsContainer>
-  ));
+  );
 };
 
 export default NewArrivals;

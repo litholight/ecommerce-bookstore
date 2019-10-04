@@ -32,29 +32,18 @@ const Menu = props => {
       <Branding to="/">Ecommerce Portal - Stoneburner Software, LLC</Branding>
       <nav>
         <ul>
-          <MenuOption to={homePath} isActive={currentPath === homePath}>
-            Home
-          </MenuOption>
+          <MenuOption to={homePath}>Home</MenuOption>
           {currentUser ? (
             <React.Fragment>
-              <MenuOption
-                to={dashboardPath}
-                isActive={currentPath === dashboardPath}
-              >
-                Dashboard
-              </MenuOption>
+              <MenuOption to={dashboardPath}>Dashboard</MenuOption>
               <MenuOptionDiv onClick={() => auth.signOut()}>
                 Sign Out
               </MenuOptionDiv>
             </React.Fragment>
           ) : (
             <React.Fragment>
-              <MenuOption to={signinPath} isActive={currentPath === signinPath}>
-                Sign in
-              </MenuOption>
-              <MenuOption to={signupPath} isActive={currentPath === signupPath}>
-                Sign up
-              </MenuOption>
+              <MenuOption to={signinPath}>Sign in</MenuOption>
+              <MenuOption to={signupPath}>Sign up</MenuOption>
             </React.Fragment>
           )}
           <CartIcon />

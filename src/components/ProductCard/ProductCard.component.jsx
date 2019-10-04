@@ -14,14 +14,14 @@ import CustomButton from "../custom-button/custom-button.component";
 
 import { PCFStyles } from "./ProductCardFooter.styles";
 
-const ProductCard = ({ product, addItem, showViewProductButton = true }) => {
-  const { header, imageUrl, description, price, id } = product;
+const ProductCard = ({ items, addItem, showViewProductButton = true }) => {
+  const { name, imageUrl, description, price, id } = items;
   const showViewButton = showViewProductButton => {
     return showViewProductButton && <CustomButton>View Product</CustomButton>;
   };
   return (
     <ProductContainer>
-      <ProductCardHeader>{header}</ProductCardHeader>
+      <ProductCardHeader>{name}</ProductCardHeader>
       <ProductImage src={imageUrl} alt="" />
       <ProductItem>{description}</ProductItem>
       <ProductPrice>${price}</ProductPrice>
@@ -29,7 +29,7 @@ const ProductCard = ({ product, addItem, showViewProductButton = true }) => {
         <Link to={`/product/${id}`}>
           {showViewButton(showViewProductButton)}
         </Link>
-        <CustomButton inverted={"inverted"} onClick={() => addItem(product)}>
+        <CustomButton inverted={"inverted"} onClick={() => addItem(items)}>
           Add to Cart
         </CustomButton>
       </PCFStyles>

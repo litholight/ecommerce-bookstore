@@ -2,7 +2,7 @@ import React from "react";
 import { connect } from "react-redux";
 import { createStructuredSelector } from "reselect";
 
-import { selectProductData } from "../../redux/products/products.selectors";
+import { selectCollections } from "../../redux/shop/shop.selectors";
 
 import Layout from "../Layout/Layout.component";
 
@@ -28,7 +28,7 @@ const ProductView = props => {
 };
 
 const mapStateToProps = createStructuredSelector({
-  products: selectProductData
+  products: selectCollections
 });
 
 export default connect(mapStateToProps)(ProductView);
